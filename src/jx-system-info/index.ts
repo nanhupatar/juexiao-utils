@@ -14,7 +14,6 @@ if (isIpad && appVersion >= 98) {
   isIos = true
   isIpad = false
 }
-
 /**
  * 获取app版本号
  */
