@@ -26,7 +26,7 @@ jobs:
       - run: exec("git add .")
       - run: exec('git config user.name "yechuanjie"')
       - run: exec('git config user.email "1102684711@qq.com"')
-      - run: exec('git commit -m "docs(docs): update gh-pages"')
+      - run: exec('git commit -m "update gh-pages"')
       - run: exec('git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/Yechuanjie/juexiao-utils.git" master:gh-pages')
       - run: echo("Docs deployed!!")
         env:
