@@ -19,16 +19,14 @@ jobs:
 
       # 发布 docs 文档到github-pages
       # 需要用到 github token
-      - run: echo("Deploying docs!!!")
-      - run: cd("docs")
-      - run: touch(".nojekyll")
-      - run: exec("git init")
-      - run: exec("git add .")
-      - run: exec('git config user.name "yechuanjie"')
-      - run: exec('git config user.email "1102684711@qq.com"')
-      - run: exec('git commit -m "update gh-pages"')
-      - run: exec('git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/Yechuanjie/juexiao-utils.git" master:gh-pages')
-      - run: echo("Docs deployed!!")
+      - run: cd docs
+      - run: touch .nojekyll
+      - run: git init
+      - run: git add .
+      - run: git config user.name "yechuanjie"
+      - run: git config user.email "1102684711@qq.com"
+      - run: git commit -m "update gh-pages"
+      - run: git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/Yechuanjie/juexiao-utils.git" master:gh-pages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
