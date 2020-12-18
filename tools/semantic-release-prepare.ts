@@ -39,6 +39,7 @@ if (pkg.repository.url.trim()) {
 } else {
   console.log(
     colors.red(
+      
       'First you need to set the "repository.url" property in package.json'
     )
   )
