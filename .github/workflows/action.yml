@@ -8,28 +8,50 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # 安装依赖
+      - run: yarn install
+      # 单元测试
+      - run: yarn test:prod
+      # 构建
+      - run: yarn build
+      # 报告覆盖率
+      # - run: yarn report-coverage
+      # 发布 docs 文档到github-pages
+      - run: yarn deploy-docs
+
+      # - name: Semantic Release
+      # - uses: cycjimmy/semantic-release-action@v2
+      #   id: semantic # Need an `id` for output variables
+      #   with:
+      #     branch: master
+      #     extra_plugins: |
+      #       @semantic-release/git
+      #       @semantic-release/changelog
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # 设置 .npmrc 文件以发布到 npm
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-      # 安装依赖
-      - run: yarn install
-      
-      # 报告覆盖率
-      # - run: yarn report-coverage
-
-      # 发布 docs 文档到github-pages
-      - run: yarn deploy-docs
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # 使用semantic-release 发布到 npm
       - run: yarn semantic-release
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # # 发布到 npm
           # - run: npm publish --access public
           #   env:
           #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # 设置 .npmrc 文件以发布到 GitHub 包
       - uses: actions/setup-node@v1
         with:
