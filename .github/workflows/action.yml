@@ -22,12 +22,12 @@ jobs:
       # 使用semantic-release 发布到 npm
       - run: yarn semantic-release
         env:
-          NPM_TOKEN: ${{ secrects.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrects.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # # 发布到 npm
           # - run: npm publish --access public
           #   env:
-          #     NPM_TOKEN: ${{ secrects.NPM_TOKEN }}
+          #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # 设置 .npmrc 文件以发布到 GitHub 包
       - uses: actions/setup-node@v1
         with:
@@ -37,4 +37,4 @@ jobs:
       # 发布到 GitHub 包
       - run: npm publish
         env:
-          GH_TOKEN: ${{ secrects.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
