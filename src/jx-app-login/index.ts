@@ -5,6 +5,6 @@
  * Author: Yechuanjie
  * Copyright (c) Juexiao Time. All rights reserved.
  *
- * app内部登录
+ * app 内部登录
  */
 export default function JxAppLogin() {}
