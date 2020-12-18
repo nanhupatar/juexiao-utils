@@ -24,7 +24,7 @@ if (typeof pkg.repository === "object") {
 
 let parsedUrl = url.parse(repoUrl)
 let repository = (parsedUrl.host || "") + (parsedUrl.path || "")
-let ghToken = process.env.GH_TOKEN
+let ghToken = process.env.NODE_AUTH_TOKEN
 console.warn('ghToken', ghToken)
 console.warn('repository', repository)
 

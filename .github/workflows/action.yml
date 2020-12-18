@@ -16,36 +16,19 @@ jobs:
       - run: yarn build
       # 报告覆盖率
       # - run: yarn report-coverage
+
       # 发布 docs 文档到github-pages
+      # 需要用到 github token
       - run: yarn deploy-docs
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Semantic Release
-      # - uses: cycjimmy/semantic-release-action@v2
-      #   id: semantic # Need an `id` for output variables
-      #   with:
-      #     branch: master
-      #     extra_plugins: |
-      #       @semantic-release/git
-      #       @semantic-release/changelog
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # # 设置 .npmrc 文件以发布到 npm
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '12.x'
-      #     registry-url: 'https://registry.npmjs.org'
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # 使用semantic-release 发布到 npm
+      # 需要用到 npm token 和 github token
       - run: yarn semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 设置 .npmrc 文件以发布到 GitHub 包
       - uses: actions/setup-node@v1
