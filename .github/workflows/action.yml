@@ -15,8 +15,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       # 安装依赖
       - run: yarn install
+      
       # 报告覆盖率
-      - run: yarn report-coverage
+      # - run: yarn report-coverage
+
       # 发布 docs 文档到github-pages
       - run: yarn deploy-docs
       # 使用semantic-release 发布到 npm
