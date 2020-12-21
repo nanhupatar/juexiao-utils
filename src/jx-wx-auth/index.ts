@@ -14,6 +14,8 @@ import { wxAuth } from '../api/api'
 export default function JxWxAuth(env: ENV, redirectURI?: string) {
   return new Promise((resolve, reject) => {
     const authCode = getQueryString('code')
+    const domain = API_LIST[env]
+    console.info(domain)
     if (authCode) {
       wxAuth({
         code: authCode
