@@ -85,25 +85,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "release": {
-    "plugins": [
-      ["@semantic-release/commit-analyzer", {
-        "preset": "angular",
-        "releaseRules": [
-          {"type": "major", "release": "major"},
-          {"type": "minor", "release": "minor"},
-          {"type": "patch", "release": "patch"},
-          {"scope": "no-release", "release": false}
-        ]
-      }],
-      [
-        "@semantic-release/git",
-        {
-          "message": ":bookmark: v${nextRelease.version} [skip ci]\n\nhttps://github.com/momocow/semantic-release-gitmoji/releases/tag/${nextRelease.gitTag}"
-        }
-      ]
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
