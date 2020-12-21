@@ -7,7 +7,7 @@
  *
  * h5微信授权
  */
-import { ENV, API_LIST } from './index.d'
+import { ENV, API_LIST } from './wxauth'
 import { getQueryString } from '../utils'
 import { wxAuth } from '../api/api'
 
