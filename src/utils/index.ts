@@ -1,4 +1,18 @@
-export function postData(url: string, data = {}): Promise<any> {
+export interface ResponseType<T> {
+  code: number
+  data: T
+  message: string
+}
+
+/**
+ * 发送post请求
+ *
+ * @export
+ * @param {string} url
+ * @param {*} [data={}]
+ * @return {*}  {Promise<any>}
+ */
+export function postData<T>(url: string, data = {}): Promise<ResponseType<T>> {
   // Default options are marked with *
   return fetch(url, {
     body: JSON.stringify(data), // must match 'Content-Type' header
@@ -9,11 +23,22 @@ export function postData(url: string, data = {}): Promise<any> {
   }).then(response => response.json()) // parses response to JSON
 }
 
-export function getQueryString(name) {
-  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
-  var r = window.location.search.substr(1).match(reg)
-  if (r != null) {
-    return decodeURIComponent(r[2])
-  }
-  return ''
+/**
+ * 动态加载js
+ *
+ * @export
+ * @param {string} url
+ * @return {*}  {Promise<boolean>}
+ */
+export function loadScript(url: string): Promise<boolean> {
+  return new Promise((resolve, reject) => {
+    const head = document.head || document.getElementsByTagName('head')[0]
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = url
+    script.async = true
+    head.appendChild(script)
+    script.onload = () => resolve(true)
+    script.onerror = err => reject(err)
+  })
 }

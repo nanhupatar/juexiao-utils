@@ -1,20 +1,26 @@
-import { JxShare, JxAppLogin } from '../src/juexiao-utils'
+import { JxSetShareInfo, JxSystem, JxUtils, JxWxAuth, JxAppLogin } from '../src/juexiao-utils'
 
-/**
- * test
- */
-describe('test', () => {
-  it('works if true is truthy', () => {
-    expect(true).toBeTruthy()
+describe('test juexiao-utils', () => {
+  test('test JxSetShareInfo', () => {
+    expect(
+      JxSetShareInfo({
+        title: '测试标题',
+        summary: '测试副标题',
+        url: 'https://www.baidu.com',
+        pic: 'https://img.juexiaotime.com/miniprogram/chooseSchool/blue-circle.png',
+        type: 1,
+        base64: 'base64 dsads==',
+        swapTitleInWX: Math.random() > 0.5
+      })
+    )
   })
 
-  it('Class is instantiable', () => {
-    const jsShare = new JxShare({
-      title: '',
-      desc: '',
-      url: '',
-      icon: ''
-    })
-    expect(jsShare).toBeInstanceOf(JxShare)
+  test('test JxSystem', () => {
+    expect(JxSystem).toHaveProperty('source')
+  })
+
+  test('test JxUtils ', () => {
+    const queryName = JxUtils.getQueryString('name')
+    expect(queryName)
   })
 })
