@@ -1,4 +1,4 @@
-import { JxSetShareInfo, JxSystem, JxUtils, JxWxAuth, JxAppLogin } from '../src/juexiao-utils'
+import { JxSetShareInfo, JxSystem, JxUtils, JxAppLogin } from '../src/juexiao-utils'
 
 describe('test juexiao-utils', () => {
   test('test JxSetShareInfo', () => {
@@ -22,5 +22,13 @@ describe('test juexiao-utils', () => {
   test('test JxUtils ', () => {
     const queryName = JxUtils.getQueryString('name')
     expect(queryName)
+  })
+
+  test('test JxAppLogin ', () => {
+    JxAppLogin()
+      .then(res => {
+        expect(res).toBe('app longin info')
+      })
+      .catch(err => expect(err).toBe('请在APP内调用'))
   })
 })

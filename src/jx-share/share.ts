@@ -1,6 +1,6 @@
 /**
  * 第三方分享平台sdk
- * */
+ */
 export enum SdkLink {
   wx = '//res.wx.qq.com/open/js/jweixin-1.0.0.js',
   qq = '//open.mobile.qq.com/sdk/qqapi.js?_bid=152',
@@ -9,7 +9,7 @@ export enum SdkLink {
 /**
  * 分享平台类型
  * 微信 | qq | qq空间 | 觉晓app
- * */
+ */
 export type Platform = 'wx' | 'qq' | 'qz' | 'jx'
 
 export type ShareObj = {

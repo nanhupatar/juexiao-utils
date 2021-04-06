@@ -30,16 +30,20 @@ class Share {
   }
   public setShareInfo(shareData: ShareObj) {
     if (JxSystem.isWx) {
-      this.getJsApi().then(config => {
-        const data = {
-          ...shareData,
-          WXconfig: {
-            swapTitleInWX: shareData.swapTitleInWX,
-            ...config
+      this.getJsApi()
+        .then(config => {
+          const data = {
+            ...shareData,
+            WXconfig: {
+              swapTitleInWX: shareData.swapTitleInWX,
+              ...config
+            }
           }
-        }
-        this.init(data)
-      })
+          this.init(data)
+        })
+        .catch(err => {
+          throw new Error(err)
+        })
     } else {
       this.init(shareData)
     }

@@ -36,7 +36,7 @@ function getSource() {
 function getAppCode() {
   if (isJx) {
     try {
-      var jxcode = ua.match(/juexiao\s*\d*/g)
+      let jxcode = ua.match(/juexiao\s*\d*/g)
       if (jxcode && jxcode[0]) {
         return Number(jxcode[0].replace(/juexiao\s*/g, ''))
       } else {

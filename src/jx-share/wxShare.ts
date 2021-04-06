@@ -28,7 +28,7 @@ export default async function WxShare(data: ShareDataType) {
       imgUrl: data.pic,
       type: '',
       dataUrl: '',
-      cancel: () => {}
+      cancel: () => console.info('cancel')
     }
     window.wx.onMenuShareAppMessage(config)
     window.wx.onMenuShareQQ(config)
@@ -41,8 +41,8 @@ export default async function WxShare(data: ShareDataType) {
         imgUrl: data.pic,
         type: '',
         dataUrl: '',
-        success: () => {},
-        cancel: () => {}
+        success: () => console.info('success'),
+        cancel: () => console.info('cancel')
       })
     } else {
       window.wx.onMenuShareTimeline(config)

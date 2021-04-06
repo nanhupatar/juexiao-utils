@@ -12,7 +12,7 @@ export default async function JxShare(data: ShareDataType) {
       data.title,
       data.summary,
       data.url,
-      data.base64 || undefined,
+      data.base64,
       data.type || 2
     )
   }
@@ -22,7 +22,7 @@ export default async function JxShare(data: ShareDataType) {
       content: data.summary,
       type: data.type || 2,
       url: data.url,
-      img: data.base64 || undefined
+      img: data.base64
     })
   }
 }

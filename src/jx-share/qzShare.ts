@@ -24,13 +24,18 @@ export default async function QZShare(data: ShareDataType) {
           summaryArr.push(data.summary)
         }
       }
-      window.QZAppExternal.setShare(() => {}, {
-        type: 'share',
-        image: imageArr,
-        title: titleArr,
-        summary: summaryArr,
-        shareURL: shareURLArr
-      })
+      window.QZAppExternal.setShare(
+        () => {
+          console.log('QZAppExternal setShare')
+        },
+        {
+          type: 'share',
+          image: imageArr,
+          title: titleArr,
+          summary: summaryArr,
+          shareURL: shareURLArr
+        }
+      )
     }
   }
   if (window.QZAppExternal) {
