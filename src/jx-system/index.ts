@@ -5,7 +5,6 @@
  * Author: Yechuanjie
  * Copyright (c) Juexiao Time. All rights reserved.
  *
- * 系统相关内容
  */
 
 const ua = navigator.userAgent.toLowerCase()
@@ -49,7 +48,9 @@ function getAppCode() {
     return -1
   }
 }
-
+/**
+ * 系统信息
+ */
 const JxSystem = {
   isJx,
   isAndroid,
