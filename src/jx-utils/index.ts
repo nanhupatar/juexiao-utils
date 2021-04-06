@@ -43,7 +43,7 @@ export const debounce = (func: Function, delay: number, immediate: boolean = fal
  */
 export const throttle = (func: Function, delay: number): Function => {
   let previous = 0
-  return function(this: any, ...args: any) {
+  return function(this: any, ...args: any[]) {
     const now = new Date().getTime()
     if (now - previous < delay) return
     previous = now

@@ -1,4 +1,4 @@
-import { ShareObj, SdkLink, ShareDataType } from './share'
+import { SdkLink, ShareDataType } from './share'
 import { loadScript } from '../utils/index'
 /**
  * 微信分享
