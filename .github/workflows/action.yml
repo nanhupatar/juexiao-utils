@@ -15,12 +15,11 @@ jobs:
       # 构建
       - run: yarn build
       # 报告覆盖率
-      - run: yarn report-coverage
-      # - name: start coverage!
-      #   run: |
-      #     touch .coveralls.yml
-      #     echo "repo_token: ${{secrets.COVERAGE_TOKEN}}" > .coveralls.yml
-      #     yarn report-coverage
+      - name: start coverage!
+        run: |
+          touch .coveralls.yml
+          echo "repo_token: ${{secrets.COVERAGE_TOKEN}}" > .coveralls.yml
+          yarn report-coverage
 
       # 发布 docs 文档到github-pages  需要用到 github access token
       # 貌似不能直接使用 secrets.GITHUB_TOKEN
