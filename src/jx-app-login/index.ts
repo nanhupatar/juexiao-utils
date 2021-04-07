@@ -7,13 +7,25 @@
  */
 import JxSystem from '../jx-system'
 
+type UserInfo = {
+  /**
+   * 用户id
+   */
+  id: number
+  /**
+   * 登录token
+   */
+  token: string | null
+  [key: string]: any
+}
+
 /**
  * h5在app内打开 自动获取登录信息
  *
  * @export
  * @return {*}  {Promise<Object>}
  */
-export default function JxAppLogin(): Promise<Object> {
+export default function JxAppLogin(): Promise<UserInfo> {
   // const cutomWindow: ICustomWindow = window
   return new Promise((resolve, reject) => {
     if (JxSystem.isJx) {
@@ -31,7 +43,7 @@ export default function JxAppLogin(): Promise<Object> {
           const ruserId = matchRuserId && matchRuserId[0].replace('ruserId_', '')
           const token = matchToken && matchToken[0].replace('token_', '')
           resolve({
-            id: ruserId,
+            id: Number(ruserId),
             token
           })
         } else {

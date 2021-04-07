@@ -30,7 +30,7 @@ export type ShareObj = {
    */
   url: string
   /**
-   * 分享类型 仅在觉晓app内有效
+   * 分享类型 仅在觉晓app内有效 不传默认为2
    * @type {(1 | 2)} 1 分享图片 2 分享链接
    */
   type?: 1 | 2
