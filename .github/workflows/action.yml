@@ -18,7 +18,7 @@ jobs:
       - name: start coverage!
         run: |
           touch .coveralls.yml
-          cat << repo_token: ${{secrets.COVERAGE_TOKEN}} > .coveralls.yml
+          cat < repo_token: ${{secrets.COVERAGE_TOKEN}} > .coveralls.yml
           yarn report-coverage
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
