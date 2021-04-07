@@ -12,6 +12,7 @@
 
 ```typescript
 import { JxSetShareInfo } from 'juexiao-utils'
+
 JxSetShareInfo({
     title: '分享标题',
     summary: '分享描述',
@@ -67,6 +68,7 @@ export declare type ShareObj = {
 
 ```typescript
 import { JxAppLogin } from 'juexiao-utils'
+
 JxAppLogin().then(res=> {
     const userInfo = res
 })
@@ -96,6 +98,7 @@ declare type UserInfo = {
 
 ```typescript
 import { JxWxAuth } from 'juexiao-utils'
+
 JxWxAuth().then(code=> {
     // 通过授权码向服务端换取用户信息
     // loginByCode 需自行封装请求，这里只做演示
