@@ -15,8 +15,11 @@ jobs:
       # 构建
       - run: yarn build
       # 报告覆盖率
-      - name: report coverage!
-        run: yarn report-coverage
+      - name: start coverage!
+        run: |
+          touch .coveralls.yml
+          cat << repo_token: ${{secrets.COVERAGE_TOKEN}} > .coveralls.yml
+          yarn report-coverage
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
