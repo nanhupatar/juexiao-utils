@@ -1,10 +1,8 @@
 image: node  # 选用node镜像
-   
    stages: # Stages 表示构建阶段，这里有两个阶段 install, publish
    - install
-  #  - publish
-   
-   install-staging:dep: # Jobs 表示构建工作，表示某个 Stage 里面执行的工作。
+  # - publish
+  install-staging:dep: # Jobs 表示构建工作，表示某个 Stage 里面执行的工作。
      stage: install
      only: # 定义了只有在被merge到了master分支上 才会执行部署脚本。
      - master
@@ -19,7 +17,6 @@ image: node  # 选用node镜像
       - touch .coveralls.yml
       - echo "repo_token: $COVERAGE_TOKEN" > .coveralls.yml
       - yarn report-coverage
-          
      artifacts:  # 将这个job生成的依赖传递给下一个job。需要设置dependencies
        expire_in: 60 mins   # artifacets 的过期时间，因为这些数据都是直接保存在 Gitlab 机器上的，过于久远的资源就可以删除掉了
        paths:  # 需要被传递给下一个job的目录。
