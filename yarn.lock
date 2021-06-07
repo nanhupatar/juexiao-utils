@@ -5372,11 +5372,6 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-juexiao-utils@^0.0.0-dev:
-  version "0.0.0-dev"
-  resolved "http://47.103.110.249:4873/juexiao-utils/-/juexiao-utils-0.0.0-dev.tgz#f3c7d0de5e0aee0b66d4a655b3eb54a3f2209a0f"
-  integrity sha512-NWdqzpH6V0itiQMcVlp0OZtPJlPBUawNmP4zxI6IhSlbMaBMfEH3VH5JUjjxOAdKQ1BC/XiEvxUGCaAQnY+lwA==
-
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/keyv/download/keyv-3.1.0.tgz?cache=0&sync_timestamp=1600337464891&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fkeyv%2Fdownload%2Fkeyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
