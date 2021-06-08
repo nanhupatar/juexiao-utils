@@ -2,7 +2,7 @@
  * 第三方分享平台sdk
  */
 export enum SdkLink {
-  wx = '//res.wx.qq.com/open/js/jweixin-1.0.0.js',
+  wx = '//res.wx.qq.com/open/js/jweixin-1.6.0.js',
   qq = '//open.mobile.qq.com/sdk/qqapi.js?_bid=152',
   qz = '//qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js?_bid=339'
 }

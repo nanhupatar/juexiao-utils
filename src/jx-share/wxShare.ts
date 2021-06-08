@@ -15,7 +15,13 @@ export default async function WxShare(data: ShareDataType) {
     timestamp: conf?.timestamp,
     nonceStr: conf?.nonceStr,
     signature: conf?.signature,
-    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone']
+    jsApiList: [
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareQZone'
+    ],
+    openTagList: ['wx-open-launch-weapp', 'wx-open-launch-app', 'wx-open-subscribe'] // 可选，需要使用的开放标签列表，例如['wx-open-launch-app']
   })
   window.wx.error(err => {
     throw new Error(err)
