@@ -10,16 +10,21 @@
 
 import JxSystem from '../jx-system'
 import { postData } from '../utils'
-import { ShareObj, JsApiConfig, ShareDataType } from './share'
+import { ShareObj, JsApiConfig, ShareDataType, ShareOption } from './share'
 import WxShare from './wxShare'
 import QQShare from './qqShare'
 import QZShare from './qzShare'
 import JxShare from './jxShare'
 
 class Share {
+  private apiLink = '//api.juexiaotime.com/userapi/wechat/getJsApi'
+  constructor(options?: ShareOption) {
+    if (options?.apiLink) {
+      this.apiLink = options.apiLink
+    }
+  }
   private async getJsApi() {
-    const apiLink = '//api.juexiaotime.com/userapi/wechat/getJsApi'
-    const data = await postData<JsApiConfig>(apiLink, { url: window.location.href })
+    const data = await postData<JsApiConfig>(this.apiLink, { url: window.location.href })
     return data.data
   }
   private init(shareData: ShareDataType) {
@@ -50,7 +55,7 @@ class Share {
   }
 }
 
-export default function JxSetShareInfo(shareData: ShareObj) {
-  const shareInstance = new Share()
+export default function JxSetShareInfo(shareData: ShareObj, shareConfig?: ShareOption) {
+  const shareInstance = new Share(shareConfig)
   shareInstance.setShareInfo(shareData)
 }

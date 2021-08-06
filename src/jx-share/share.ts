@@ -6,6 +6,10 @@ export enum SdkLink {
   qq = '//open.mobile.qq.com/sdk/qqapi.js?_bid=152',
   qz = '//qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js?_bid=339'
 }
+
+export type ShareOption = {
+  apiLink: string
+}
 /**
  * 分享平台类型
  * 微信 | qq | qq空间 | 觉晓app
