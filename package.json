@@ -1,12 +1,13 @@
 {
-  "name": "juexiao-utils",
-  "version": "0.0.0-dev",
+  "name": "@juexiao/juexiao-utils",
+  "version": "3.0.0",
   "description": "utils for juexiaotime",
   "keywords": [
     "utils",
     "share",
     "login"
   ],
+  "scope": "@juexiao",
   "main": "dist/juexiao-utils.umd.js",
   "module": "dist/juexiao-utils.es5.js",
   "typings": "dist/types/juexiao-utils.d.ts",

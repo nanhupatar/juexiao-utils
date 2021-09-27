@@ -14,24 +14,36 @@ import { ShareObj, JsApiConfig, ShareDataType, ShareOption } from './share'
 import WxShare from './wxShare'
 import QQShare from './qqShare'
 import QZShare from './qzShare'
-import JxShare from './jxShare'
+import JXShare from './jxShare'
 
-class Share {
-  private apiLink = '//api.juexiaotime.com/userapi/wechat/getJsApi'
-  constructor(options?: ShareOption) {
-    if (options?.apiLink) {
-      this.apiLink = options.apiLink
+export class Share {
+  private static instance: Share
+  private apiLink = ''
+  private appKey = 'wx'
+  constructor(options: ShareOption) {
+    if (!Share.instance) {
+      this.apiLink = this.getApiLink(options.env)
+      this.appKey = options.appKey
+      Share.instance = this
     }
+    return Share.instance
+  }
+  private getApiLink(env: ShareOption['env']) {
+    let domain = env === 'production' ? 'userapi' : 'inuserdevapi'
+    return `//${domain}/jxuserapi/wechat/getJsApi`
   }
   private async getJsApi() {
-    const data = await postData<JsApiConfig>(this.apiLink, { url: window.location.href })
+    const data = await postData<JsApiConfig>(this.apiLink, {
+      url: window.location.href,
+      appKey: this.appKey
+    })
     return data.data
   }
   private init(shareData: ShareDataType) {
     JxSystem.isWx && WxShare(shareData)
     JxSystem.isQq && QQShare(shareData)
     JxSystem.isQz && QZShare(shareData)
-    JxSystem.isJx && JxShare(shareData)
+    JxSystem.isJx && JXShare(shareData)
   }
   public setShareInfo(shareData: ShareObj) {
     if (JxSystem.isWx) {
@@ -55,7 +67,7 @@ class Share {
   }
 }
 
-export default function JxSetShareInfo(shareData: ShareObj, shareConfig?: ShareOption) {
-  const shareInstance = new Share(shareConfig)
+export default function JxSetShareInfo(shareData: ShareObj) {
+  const shareInstance = new Share({ appKey: 'wx', env: 'production' })
   shareInstance.setShareInfo(shareData)
 }

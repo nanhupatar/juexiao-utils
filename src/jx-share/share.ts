@@ -8,7 +8,10 @@ export enum SdkLink {
 }
 
 export type ShareOption = {
-  apiLink: string
+  /** 用户中心项目appKey */
+  appKey: string
+  /** 环境变量 */
+  env: 'development' | 'dev' | 'release' | 'production'
 }
 /**
  * 分享平台类型
