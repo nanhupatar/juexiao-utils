@@ -23,7 +23,7 @@ export default function JxWxAuth(redirectURI: string = location.href): Promise<s
     } else {
       // 微信跳转授权 snsapi_base 禁默 snsapi_userinfo 非禁默
       const href =
-        'https://mgame.juexiaotime.com/wxAuth/index.html?appid=wx1b91e59ce3d2c07e' +
+        'https://img.juexiaotime.com/userAdmin/wechat_login.html?appid=wx1b91e59ce3d2c07e' +
         '&redirect_uri=' +
         encodeURIComponent(redirectURI) +
         '&scope=snsapi_userinfo' +

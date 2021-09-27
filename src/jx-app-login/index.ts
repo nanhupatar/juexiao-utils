@@ -36,7 +36,7 @@ export default function JxAppLogin(): Promise<UserInfo> {
       if (JxSystem.isIos || JxSystem.isIpad) {
         const userAgent = navigator.userAgent
         const ruserIdReg = /ruserId_[0-9]{1,10}/
-        const tokenReg = /token_[A-Za-z0-9]+$/
+        const tokenReg = /token_[A-Za-z0-9-]+$/
         if (ruserIdReg.test(userAgent)) {
           const matchRuserId = userAgent.match(ruserIdReg)
           const matchToken = userAgent.match(tokenReg)
