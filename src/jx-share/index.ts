@@ -16,21 +16,22 @@ import QQShare from './qqShare'
 import QZShare from './qzShare'
 import JXShare from './jxShare'
 
-export class Share {
-  private static instance: Share
+export class JxShare {
+  private static instance: JxShare
   private apiLink = ''
   private appKey = 'wx'
   constructor(options: ShareOption) {
-    if (!Share.instance) {
+    if (!JxShare.instance) {
       this.apiLink = this.getApiLink(options.env)
+      console.info(this.apiLink)
       this.appKey = options.appKey
-      Share.instance = this
+      JxShare.instance = this
     }
-    return Share.instance
+    return JxShare.instance
   }
   private getApiLink(env: ShareOption['env']) {
     let domain = env === 'production' ? 'userapi' : 'inuserdevapi'
-    return `//${domain}/jxuserapi/wechat/getJsApi`
+    return `https://${domain}.juexiaotime.com/jxuserapi/wechat/getJsApi`
   }
   private async getJsApi() {
     const data = await postData<JsApiConfig>(this.apiLink, {
@@ -68,6 +69,6 @@ export class Share {
 }
 
 export default function JxSetShareInfo(shareData: ShareObj) {
-  const shareInstance = new Share({ appKey: 'wx', env: 'production' })
+  const shareInstance = new JxShare({ appKey: 'wx', env: 'production' })
   shareInstance.setShareInfo(shareData)
 }

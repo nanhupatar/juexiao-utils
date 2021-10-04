@@ -20,7 +20,7 @@ export function postData<T>(url: string, data = {}): Promise<ResponseType<T>> {
       'content-type': 'application/json'
     },
     method: 'POST' // *GET, POST, PUT, DELETE, etc.
-  }).then(response => response.json()) // parses response to JSON
+  }).then(res => res.json())
 }
 
 /**
@@ -32,6 +32,7 @@ export function postData<T>(url: string, data = {}): Promise<ResponseType<T>> {
  */
 export function loadScript(url: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
+    console.info(url)
     const head = document.head || document.getElementsByTagName('head')[0]
     const script = document.createElement('script')
     script.type = 'text/javascript'

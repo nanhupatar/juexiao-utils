@@ -24,7 +24,7 @@ export default async function WxShare(data: ShareDataType) {
     openTagList: ['wx-open-launch-weapp', 'wx-open-launch-app', 'wx-open-subscribe'] // 可选，需要使用的开放标签列表，例如['wx-open-launch-app']
   })
   window.wx.error(err => {
-    throw new Error(err)
+    console.error(err)
   })
   window.wx.ready(() => {
     const config = {
