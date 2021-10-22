@@ -30,7 +30,7 @@ export class JxShare {
     return JxShare.instance
   }
   private getApiLink(env: ShareOption['env']) {
-    let domain = env === 'production' ? 'userapi' : 'inuserdevapi'
+    let domain = env === 'production' ? 'userapi' : 'devapi'
     return `https://${domain}.juexiaotime.com/jxuserapi/wechat/getJsApi`
   }
   private async getJsApi() {
