@@ -16,6 +16,8 @@ const isQq = /QQ\/([\d\.]+)/.test(ua) // QQ
 const isQz = ua.indexOf('Qzone/') > -1 // QQ空间
 const isIos = /iphone|ipod|ios/i.test(ua)
 const isIpad = /ipad/i.test(ua)
+const isByteDance = /bytedancewebview/i.test(ua) // 字节跳动
+const isTickTok = /ttwebview/i.test(ua) // 抖音
 const isMobile = isAndroid || isIos || isIpad
 const appVersion = getAppCode()
 const source = getSource()
@@ -60,6 +62,8 @@ const JxSystem = {
   isWx,
   isQq,
   isQz,
+  isByteDance,
+  isTickTok,
   appVersion,
   isPc: !isMobile,
   source
