@@ -65,6 +65,7 @@ const JxSystem = {
   isByteDance,
   isTickTok,
   appVersion,
+  isMobile,
   isPc: !isMobile,
   source
 }
