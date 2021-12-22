@@ -34,8 +34,17 @@ export class JxShare {
     return `https://${domain}.juexiaotime.com/jxuserapi/wechat/getJsApi`
   }
   private async getJsApi() {
+    // android系统，获取SDK验证的URL是 location.href; ios系统，只认首次进入页面的URL
+    let jsApiUrl: string = window.location.href
+    if (JxSystem.isIos || JxSystem.isIpad) {
+      if (sessionStorage.getItem('JS_API_URL')) {
+        jsApiUrl = sessionStorage.getItem('JS_API_URL') || ''
+      } else {
+        sessionStorage.setItem('JS_API_URL', window.location.href)
+      }
+    }
     const data = await postData<JsApiConfig>(this.apiLink, {
-      url: window.location.href,
+      url: jsApiUrl,
       appKey: this.appKey
     })
     return data.data
