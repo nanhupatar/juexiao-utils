@@ -9,7 +9,7 @@
   ],
   "scope": "@juexiao",
   "main": "dist/juexiao-utils.umd.js",
-  "module": "dist/juexiao-utils.es5.js",
+  "module": "dist/juexiao-utils.esm.js",
   "typings": "dist/types/juexiao-utils.d.ts",
   "files": [
     "dist"
