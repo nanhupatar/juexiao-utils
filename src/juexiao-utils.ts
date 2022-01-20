@@ -7,7 +7,7 @@
  */
 import JxSetShareInfo, { JxShare } from './jx-share'
 import JxAppLogin from './jx-app-login'
-import JxSystem from './jx-system'
+import JxSystem, { JxSystemInfo } from './jx-system'
 import JxWxAuth from './jx-wx-auth'
 import JxUtils from './jx-utils'
-export { JxAppLogin, JxSystem, JxWxAuth, JxUtils, JxShare, JxSetShareInfo }
+export { JxAppLogin, JxSystem, JxSystemInfo, JxWxAuth, JxUtils, JxShare, JxSetShareInfo }
