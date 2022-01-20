@@ -9,12 +9,18 @@ const pkg = require('./package.json')
 
 const libraryName = 'juexiao-utils'
 
+const outputVal = format => {
+  return {
+    file: `dist/juexiao-utils.${format}.js`,
+    name: camelCase(libraryName),
+    format,
+    sourcemap: true
+  }
+}
+
 export default {
   input: `src/${libraryName}.ts`,
-  output: [
-    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
-    { file: pkg.module, name: camelCase(libraryName), format: 'esm', sourcemap: true }
-  ],
+  output: [outputVal('umd'), outputVal('esm'), outputVal('cjs')],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [],
   watch: {
